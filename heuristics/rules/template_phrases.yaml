@@ -202,6 +202,15 @@ phrases:
     severity: moderate
     category: 客服腔
     contexts_exempt: [售后, 客服, 工单]
+  - phrase: "尊敬的客户您好"
+    severity: moderate
+    category: 客服腔
+  - phrase: "非常感谢您的耐心等待"
+    severity: moderate
+    category: 客服腔
+  - phrase: "请您耐心关注后续通知"
+    severity: moderate
+    category: 客服腔
   - phrase: "规定时效内"
     severity: moderate
     category: 客服腔

@@ -130,3 +130,20 @@ class TestCandidateGenerator:
         )
         # Heuristic candidates only (may produce 0 if no rules match)
         assert isinstance(pool, CandidatePool)
+
+    def test_generate_repair_fallback_variants(self):
+        scorer = Scorer()
+        engine = ReplacementEngine()
+        gen = CandidateGenerator(scorer=scorer, engine=engine, llm_caller=None)
+        pool = gen.generate_round(
+            spec={"task": "改写微信退款回复"},
+            task="改写微信退款回复",
+            source_text="你好，久等了，退款这边已经在处理了，预计3个工作日内完成审核，有进展我会及时跟你说。",
+            current_best_text="你好，久等了，退款这边已经在处理了，预计3个工作日内完成审核，有进展我会及时跟你说。",
+            current_best_score=0.68,
+            revision_mode="repair",
+            failure_tags=["no_improvement"],
+            scenario="wechat",
+        )
+        assert pool.count >= 1
+        assert any(c.source_kind == "heuristic_repair" for c in pool.candidates)

@@ -63,6 +63,27 @@ class CandidateGenerator:
                 )
                 heuristic_produced = True
 
+        # 1b. Repair-only fallback variants. These keep the pipeline moving even
+        # when plain rule substitution no longer changes the current best text.
+        if revision_mode == "repair":
+            for profile, variant_text in self._repair_variants(
+                text=base_text,
+                failure_tags=failure_tags,
+                scenario=scenario,
+            ):
+                if variant_text.strip() and variant_text.strip() != current_best_text.strip():
+                    score_obj = self.scorer.score(spec, variant_text, source_text, scenario=scenario)
+                    tags = _extract_tags(variant_text, score_obj.as_dict(), current_best_score)
+                    pool.add(
+                        profile=profile,
+                        source_kind="heuristic_repair",
+                        text=variant_text,
+                        score=score_obj.as_dict(),
+                        failure_tags=tags,
+                        applied_rules=["__repair_variant__"],
+                    )
+                    heuristic_produced = True
+
         # 2. For longform scenario: if no heuristic changes, generate a
         #    diagnostic-only candidate using the original text scored with
         #    longform-specific dimensions.
@@ -111,6 +132,48 @@ class CandidateGenerator:
                 )
 
         return pool
+
+    def _repair_variants(
+        self,
+        *,
+        text: str,
+        failure_tags: list[str],
+        scenario: str,
+    ) -> list[tuple[str, str]]:
+        """Generate simple repair candidates when direct rule replacement stalls."""
+        variants: list[tuple[str, str]] = []
+        normalized = text.strip()
+        if not normalized:
+            return variants
+
+        if scenario in {"wechat", "service", "default"}:
+            v1 = normalized
+            v1 = v1.replace("你好，久等了，", "久等了，")
+            v1 = v1.replace("你好，", "")
+            if v1 != normalized:
+                variants.append(("repair-compact-opening", v1))
+
+            v2 = normalized
+            v2 = v2.replace("有进展我会及时跟你说", "有进展我第一时间跟你说")
+            v2 = v2.replace("退款这边已经在处理了", "退款这边已经在跟进了")
+            if v2 != normalized:
+                variants.append(("repair-softer-followup", v2))
+
+            if "too_similar" in failure_tags or "no_improvement" in failure_tags:
+                v3 = normalized
+                v3 = v3.replace("预计3个工作日内完成审核", "预计3个工作日内能完成审核")
+                v3 = v3.replace("退款这边", "退款这边目前")
+                if v3 != normalized:
+                    variants.append(("repair-lower-similarity", v3))
+
+        deduped: list[tuple[str, str]] = []
+        seen: set[str] = set()
+        for profile, candidate_text in variants:
+            key = candidate_text.strip()
+            if key and key not in seen:
+                seen.add(key)
+                deduped.append((profile, key))
+        return deduped
 
     def _call_model(
         self,

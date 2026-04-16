@@ -251,16 +251,18 @@ def _parse_text_request(text: str) -> tuple[dict[str, Any], str]:
             spec["task"] = text
             return spec, source_text
 
-    # Extract must_include
-    mi_patterns = [
-        r"必须保留[：:]?\s*['\"\u2018\u2019\u201c\u201d]([^'\"\u2018\u2019\u201c\u201d]+)['\"\u2018\u2019\u201c\u201d]",
-        r"保留[：:]?\s*['\"\u2018\u2019\u201c\u201d]([^'\"\u2018\u2019\u201c\u201d]+)['\"\u2018\u2019\u201c\u201d]",
-    ]
+    # Extract must_include. Support forms like:
+    # "必须保留'退款'和'3个工作日'" / "保留“退款”“3个工作日”"
     must_include: list[str] = []
-    for pat in mi_patterns:
-        must_include.extend(re.findall(pat, text))
+    for prefix in ("必须保留", "保留"):
+        if prefix not in text:
+            continue
+        tail = text.split(prefix, 1)[1]
+        tail = re.split(r"[。；;\n]|不要|禁[用止]|避免|不超过|最多|至少|不少于", tail, maxsplit=1)[0]
+        must_include.extend(re.findall(r"['\"\u2018\u2019\u201c\u201d]([^'\"\u2018\u2019\u201c\u201d]+)['\"\u2018\u2019\u201c\u201d]", tail))
     if must_include:
-        hard_constraints["must_include"] = must_include
+        # preserve order while deduplicating
+        hard_constraints["must_include"] = list(dict.fromkeys(must_include))
 
     # Extract banned phrases
     ban_patterns = [

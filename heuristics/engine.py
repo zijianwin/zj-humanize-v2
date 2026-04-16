@@ -115,6 +115,7 @@ class ReplacementEngine:
                     result_text = result_text.replace(rule.pattern, replacement)
                     applied.append(rule.pattern)
 
+        result_text = self._cleanup_text(result_text)
         return ReplacementResult(text=result_text, applied_rules=applied, skipped_rules=skipped)
 
     def _fuzzy_replace(self, text: str, rule: ReplacementRule, replacement: str) -> str:
@@ -143,6 +144,15 @@ class ReplacementEngine:
         if best_ratio >= rule.threshold and best_start >= 0:
             return text[:best_start] + replacement + text[best_end:]
         return text
+
+    def _cleanup_text(self, text: str) -> str:
+        """Light normalization after rule replacement to avoid broken punctuation."""
+        cleaned = text
+        cleaned = re.sub(r"[，,]\s*[！!？?。；;：:]", lambda m: m.group(0).strip()[0], cleaned)
+        cleaned = re.sub(r"([您好你哈哦啊呢吗吧])，([！!？?])", r"\1\2", cleaned)
+        cleaned = re.sub(r"([，。！？；])\1+", r"\1", cleaned)
+        cleaned = re.sub(r"\s+", "", cleaned)
+        return cleaned.strip()
 
     def get_rules_by_category(self, category: str) -> list[ReplacementRule]:
         return self._rules_by_category.get(category, [])

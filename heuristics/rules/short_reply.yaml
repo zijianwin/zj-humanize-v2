@@ -1,5 +1,41 @@
 # Short reply replacement rules (微信/短消息)
 rules:
+  - pattern: "尊敬的客户您好！"
+    natural: "你好，"
+    balanced: "你好，"
+    tags: [客服腔, 开头套话]
+    priority: 20
+
+  - pattern: "尊敬的客户您好"
+    natural: "你好，"
+    balanced: "你好，"
+    tags: [客服腔, 开头套话]
+    priority: 20
+
+  - pattern: "客户您好！"
+    natural: "你好，"
+    balanced: "你好，"
+    tags: [客服腔, 开头套话]
+    priority: 18
+
+  - pattern: "客户您好"
+    natural: "你好，"
+    balanced: "你好，"
+    tags: [客服腔, 开头套话]
+    priority: 18
+
+  - pattern: "您好！"
+    natural: "你好，"
+    balanced: "你好，"
+    tags: [开头套话]
+    priority: 15
+
+  - pattern: "您好"
+    natural: "你好"
+    balanced: "你好"
+    tags: [开头套话]
+    priority: 14
+
   - pattern: "感谢您的理解与支持"
     natural: "谢谢理解"
     balanced: "谢谢您的理解"
@@ -11,8 +47,41 @@ rules:
     tags: [客服腔]
 
   - pattern: "感谢您的耐心等待"
-    natural: "感谢您的耐心"
-    balanced: "感谢您的耐心"
+    natural: "久等了"
+    balanced: "感谢你的耐心等待"
+    tags: [客服腔]
+
+  - pattern: "非常感谢您的耐心等待"
+    natural: "久等了"
+    balanced: "感谢你的耐心等待"
+    tags: [客服腔]
+    priority: 12
+
+  - pattern: "关于您的退款申请，我们已经在积极处理中"
+    natural: "退款这边已经在处理了"
+    balanced: "退款这边已经在处理中"
+    tags: [客服腔]
+    priority: 12
+
+  - pattern: "关于您的退款申请，我们已经在积极处理中，"
+    natural: "退款这边已经在处理了，"
+    balanced: "退款这边已经在处理中，"
+    tags: [客服腔]
+    priority: 13
+
+  - pattern: "预计将在3个工作日内完成审核"
+    natural: "预计3个工作日内完成审核"
+    balanced: "预计会在3个工作日内完成审核"
+    tags: [客服腔]
+
+  - pattern: "请您耐心关注后续通知"
+    natural: "有进展我会及时跟你说"
+    balanced: "后续有进展我会及时通知你"
+    tags: [客服腔]
+
+  - pattern: "请耐心关注后续通知"
+    natural: "有进展我会及时跟你说"
+    balanced: "后续有进展我会及时通知你"
     tags: [客服腔]
 
   - pattern: "如有任何问题请随时联系"

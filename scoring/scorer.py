@@ -282,7 +282,7 @@ class Scorer:
         ]
         r_score, breakdown = _weighted_average(parts)
 
-        final = 0.64 * m_score + 0.36 * r_score
+        final = self._combine_scores(m_score, r_score)
 
         # Hard fail determination
         severe_template = src_reduction <= 0.05 and template_score <= 0.75
@@ -320,6 +320,16 @@ class Scorer:
             notes=notes,
             template_details=template_details,
         )
+
+    def _combine_scores(self, model_score: float, rule_score: float) -> float:
+        """Blend model and rule scores.
+
+        When no model bundle is loaded, rely on rule_score directly instead of
+        capping the final score around the neutral fallback model score.
+        """
+        if not self._model_bundle:
+            return rule_score
+        return 0.64 * model_score + 0.36 * rule_score
 
     # ----- internal scoring functions -----
 
@@ -401,9 +411,20 @@ class Scorer:
     def _rewrite_similarity(self, source: str, candidate: str, notes: list[str]) -> float:
         sn = _normalize_for_similarity(source)
         cn = _normalize_for_similarity(candidate)
-        if len(sn) < 50 or len(cn) < 35:
-            return 1.0
+        if not sn or not cn:
+            return 0.0
         ratio = SequenceMatcher(None, sn, cn).ratio()
+        if len(sn) < 50 or len(cn) < 35:
+            if ratio >= 0.92:
+                notes.append(f"rewrite too similar to source (short-text ratio={ratio:.3f})")
+                return 0.0
+            if ratio >= 0.84:
+                notes.append(f"rewrite still very close to source (short-text ratio={ratio:.3f})")
+                return 0.35
+            if ratio >= 0.76:
+                notes.append(f"rewrite remains close to source (short-text ratio={ratio:.3f})")
+                return 0.68
+            return 1.0
         if ratio >= 0.9:
             notes.append(f"rewrite too similar to source (ratio={ratio:.3f})")
             return 0.0
@@ -416,6 +437,9 @@ class Scorer:
         return 1.0
 
     def _sentence_splice(self, candidate: str, notes: list[str]) -> float:
+        if re.search(r"[，,][！!？?]", candidate):
+            notes.append("sentence splice issue: dangling greeting punctuation")
+            return 0.0
         sentences = [p.strip() for p in re.split(r"[。！？\n]+", candidate) if p.strip()]
         condition = ("如有需要", "如有任何问题", "如后续", "如果后续", "后续如有")
         contact = ("欢迎随时联系", "欢迎联系", "随时联系我", "联系我")
