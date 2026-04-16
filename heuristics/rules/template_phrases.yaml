@@ -1,0 +1,393 @@
+# Template phrase severity levels and context exemptions
+# severity: critical | high | moderate | low
+# contexts_exempt: list of task keywords where this phrase is acceptable
+
+phrases:
+  # ===== CRITICAL: 极强 AI 味, 几乎不可能出自真人 =====
+  - phrase: "在当下这个充满不确定性却又蕴含巨大机会的时代"
+    severity: critical
+    category: 自媒体开头套话
+  - phrase: "底层逻辑"
+    severity: critical
+    category: 抽象词
+  - phrase: "认知升级"
+    severity: critical
+    category: 抽象词
+  - phrase: "行动迭代"
+    severity: critical
+    category: 抽象词
+  - phrase: "成长闭环"
+    severity: critical
+    category: 抽象词
+  - phrase: "低质量勤奋"
+    severity: critical
+    category: 自媒体鸡汤
+  - phrase: "单点突破"
+    severity: critical
+    category: 抽象词
+  - phrase: "更大的确定性"
+    severity: critical
+    category: 自媒体鸡汤
+  - phrase: "系统化交流"
+    severity: critical
+    category: 抽象词
+  - phrase: "行为触发机制"
+    severity: critical
+    category: 抽象词
+  - phrase: "长期复用"
+    severity: critical
+    category: 抽象词
+  - phrase: "生活系统"
+    severity: critical
+    category: 抽象词
+  - phrase: "个人竞争力跃迁"
+    severity: critical
+    category: 抽象词
+  - phrase: "释放增长潜能"
+    severity: critical
+    category: 商业套话
+  - phrase: "可持续增长的内容运营体系"
+    severity: critical
+    category: 商业套话
+
+  # ===== HIGH: 明显 AI 味 =====
+  - phrase: "快节奏的时代"
+    severity: high
+    category: 自媒体开头套话
+  - phrase: "不断追逐目标"
+    severity: high
+    category: 自媒体鸡汤
+  - phrase: "生活本身真正值得被感知的细节"
+    severity: high
+    category: 自媒体鸡汤
+  - phrase: "真正的松弛感"
+    severity: high
+    category: 自媒体鸡汤
+  - phrase: "重新找回与自己相处的能力"
+    severity: high
+    category: 自媒体鸡汤
+  - phrase: "数字化浪潮"
+    severity: high
+    category: 商业套话
+    contexts_exempt: [技术方案, 数字化]
+  - phrase: "企业经营全流程"
+    severity: high
+    category: 商业套话
+  - phrase: "复杂业务场景"
+    severity: high
+    category: 商业套话
+    contexts_exempt: [技术方案, B2B]
+  - phrase: "协同提效需求"
+    severity: high
+    category: 商业套话
+  - phrase: "多模块能力整合"
+    severity: high
+    category: 商业套话
+  - phrase: "自动化流程编排"
+    severity: high
+    category: 商业套话
+    contexts_exempt: [技术方案]
+  - phrase: "数据驱动的决策支持"
+    severity: high
+    category: 商业套话
+  - phrase: "组织协同体系"
+    severity: high
+    category: 商业套话
+  - phrase: "快节奏生活方式不断升级"
+    severity: high
+    category: 电商文案腔
+  - phrase: "精致女性"
+    severity: high
+    category: 电商文案腔
+  - phrase: "高效修护体验"
+    severity: high
+    category: 电商文案腔
+  - phrase: "多重植萃成分协同作用"
+    severity: high
+    category: 电商文案腔
+  - phrase: "深入肌肤底层"
+    severity: high
+    category: 电商文案腔
+  - phrase: "多维度肌肤问题"
+    severity: high
+    category: 电商文案腔
+  - phrase: "焕发自然光彩"
+    severity: high
+    category: 电商文案腔
+  - phrase: "高度自驱力"
+    severity: high
+    category: 招聘腔
+    contexts_exempt: [招聘, JD, 岗位]
+  - phrase: "优秀沟通协作能力"
+    severity: high
+    category: 招聘腔
+  - phrase: "复杂问题拆解能力"
+    severity: high
+    category: 招聘腔
+  - phrase: "深度参与"
+    severity: high
+    category: 商业套话
+  - phrase: "业务需求洞察"
+    severity: high
+    category: 商业套话
+  - phrase: "产品方案设计"
+    severity: high
+    category: 商业套话
+    contexts_exempt: [产品经理, PM]
+  - phrase: "跨部门资源协调"
+    severity: high
+    category: 商业套话
+  - phrase: "项目落地推进"
+    severity: high
+    category: 商业套话
+  - phrase: "推动业务目标实现"
+    severity: high
+    category: 商业套话
+  - phrase: "高品质亲肤面料"
+    severity: high
+    category: 电商文案腔
+  - phrase: "人体工学剪裁设计"
+    severity: high
+    category: 电商文案腔
+  - phrase: "兼具舒适性、透气性与时尚表现力"
+    severity: high
+    category: 电商文案腔
+  - phrase: "更加自在、轻盈且高级"
+    severity: high
+    category: 电商文案腔
+  - phrase: "系统化理解短视频内容增长方法论"
+    severity: high
+    category: 课程营销腔
+  - phrase: "高价值直播分享"
+    severity: high
+    category: 课程营销腔
+  - phrase: "深度拆解"
+    severity: high
+    category: 课程营销腔
+  - phrase: "可持续增长"
+    severity: high
+    category: 商业套话
+    contexts_exempt: [商业计划, 融资]
+  - phrase: "系统化表达训练课程"
+    severity: high
+    category: 课程营销腔
+  - phrase: "从底层逻辑出发"
+    severity: high
+    category: 抽象词
+  - phrase: "全面提升结构化表达"
+    severity: high
+    category: 课程营销腔
+  - phrase: "临场反应和影响力输出能力"
+    severity: high
+    category: 课程营销腔
+  - phrase: "多维度提升"
+    severity: high
+    category: 商业套话
+  - phrase: "复杂多变的市场环境"
+    severity: high
+    category: 商业套话
+  - phrase: "稳健和可持续的增长体系"
+    severity: high
+    category: 商业套话
+  - phrase: "相关能力与合作价值"
+    severity: high
+    category: 商业套话
+
+  # ===== MODERATE: 客服腔, 但真人偶尔也会用 =====
+  - phrase: "数字化转型"
+    severity: moderate
+    category: 行业术语
+    contexts_exempt: [技术方案, 数字化, B2B, IT]
+  - phrase: "退款诉求"
+    severity: moderate
+    category: 客服腔
+    contexts_exempt: [售后, 客服, 工单]
+  - phrase: "规定时效内"
+    severity: moderate
+    category: 客服腔
+    contexts_exempt: [售后, 工单]
+  - phrase: "提交相关部门进行核实处理"
+    severity: moderate
+    category: 客服腔
+  - phrase: "一站式智能营销解决方案"
+    severity: moderate
+    category: 商业套话
+    contexts_exempt: [营销, 方案介绍]
+  - phrase: "线索获取效率"
+    severity: moderate
+    category: 商业套话
+    contexts_exempt: [营销, 销售]
+  - phrase: "客户触达质量"
+    severity: moderate
+    category: 商业套话
+    contexts_exempt: [营销, CRM]
+  - phrase: "转化链路表现"
+    severity: moderate
+    category: 商业套话
+    contexts_exempt: [营销, 运营]
+  - phrase: "账号定位"
+    severity: moderate
+    category: 运营术语
+    contexts_exempt: [运营, 自媒体]
+  - phrase: "流量承接"
+    severity: moderate
+    category: 运营术语
+    contexts_exempt: [运营, 自媒体]
+  - phrase: "转化路径"
+    severity: moderate
+    category: 运营术语
+    contexts_exempt: [运营, 营销]
+  - phrase: "穿着体验"
+    severity: moderate
+    category: 电商文案腔
+    contexts_exempt: [服装, 电商]
+  - phrase: "未能达到您的预期"
+    severity: moderate
+    category: 客服腔
+  - phrase: "高度重视"
+    severity: moderate
+    category: 客服腔
+  - phrase: "第一时间高度重视"
+    severity: moderate
+    category: 客服腔
+  - phrase: "同步相关部门"
+    severity: moderate
+    category: 客服腔
+  - phrase: "综合核实"
+    severity: moderate
+    category: 客服腔
+  - phrase: "有序推进"
+    severity: moderate
+    category: 客服腔
+  - phrase: "完整处理结果"
+    severity: moderate
+    category: 客服腔
+  - phrase: "全面排查与优化"
+    severity: moderate
+    category: 客服腔
+  - phrase: "持续完善服务流程"
+    severity: moderate
+    category: 客服腔
+  - phrase: "持续为您提供优质服务"
+    severity: moderate
+    category: 客服腔
+  - phrase: "更加优质、高效、贴心"
+    severity: moderate
+    category: 客服腔
+  - phrase: "宝贵反馈"
+    severity: moderate
+    category: 客服腔
+  - phrase: "亲爱的各位伙伴"
+    severity: moderate
+    category: 社群腔
+  - phrase: "进一步提升社群整体互动质量"
+    severity: moderate
+    category: 社群腔
+  - phrase: "内容传播效率"
+    severity: moderate
+    category: 运营术语
+    contexts_exempt: [运营]
+  - phrase: "正式开展"
+    severity: moderate
+    category: 公告腔
+  - phrase: "高质量学习型社群"
+    severity: moderate
+    category: 社群腔
+  - phrase: "业务增长的关键阶段"
+    severity: moderate
+    category: 商业套话
+
+  # ===== LOW: 轻微模板感, 某些场景完全正常 =====
+  - phrase: "感谢您的理解与支持"
+    severity: low
+    category: 客服礼貌用语
+    contexts_exempt: [售后, 客服]
+  - phrase: "如有任何问题请随时联系"
+    severity: low
+    category: 客服礼貌用语
+  - phrase: "给您带来的不便，敬请谅解"
+    severity: low
+    category: 客服礼貌用语
+    contexts_exempt: [售后]
+  - phrase: "祝您生活愉快"
+    severity: low
+    category: 客服礼貌用语
+    contexts_exempt: [客服]
+  - phrase: "希望以上信息对您有所帮助"
+    severity: low
+    category: 客服礼貌用语
+  - phrase: "我们将竭诚为您服务"
+    severity: low
+    category: 客服礼貌用语
+  - phrase: "感谢您的耐心等待"
+    severity: low
+    category: 客服礼貌用语
+    contexts_exempt: [售后, 客服]
+  - phrase: "请您耐心等待"
+    severity: low
+    category: 客服礼貌用语
+    contexts_exempt: [售后]
+  - phrase: "期待与您合作"
+    severity: low
+    category: 商务礼貌用语
+    contexts_exempt: [商务, B2B]
+  - phrase: "日前为我提供本次面试机会"
+    severity: low
+    category: 面试腔
+  - phrase: "更加全面且深入"
+    severity: low
+    category: 面试腔
+  - phrase: "进一步增强"
+    severity: low
+    category: 通用模板
+  - phrase: "更加确信"
+    severity: low
+    category: 面试腔
+  - phrase: "具有较高的匹配度"
+    severity: low
+    category: 面试腔
+  - phrase: "期待您的进一步通知"
+    severity: low
+    category: 面试腔
+  - phrase: "第一时间积极配合"
+    severity: low
+    category: 面试腔
+
+  # ===== 长文 AI 味短语 =====
+  - phrase: "从来不是"
+    severity: high
+    category: AI金句
+    contexts_exempt: [叙事, 历史]
+  - phrase: "真正的意义在于"
+    severity: high
+    category: AI金句
+  - phrase: "本质上是"
+    severity: moderate
+    category: AI金句
+    contexts_exempt: [学术, 技术]
+  - phrase: "换句话说"
+    severity: moderate
+    category: AI解释冗余
+  - phrase: "这意味着"
+    severity: moderate
+    category: AI解释冗余
+  - phrase: "更深层的"
+    severity: moderate
+    category: AI分析腔
+  - phrase: "天差地别"
+    severity: moderate
+    category: AI夸张
+  - phrase: "冰山之下"
+    severity: moderate
+    category: AI比喻
+    contexts_exempt: [心理学, 咨询]
+  - phrase: "不可战胜"
+    severity: moderate
+    category: AI鸡汤
+  - phrase: "现实扭曲力场"
+    severity: low
+    category: 科技圈用语
+    contexts_exempt: [科技, 创业]
+  - phrase: "双重暴击"
+    severity: low
+    category: 网络用语

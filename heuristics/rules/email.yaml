@@ -1,0 +1,122 @@
+# Email-specific replacement rules (邮件类文案)
+rules:
+  # ===== 称呼 =====
+  - pattern: "^尊敬的[^，。]*，您好。?"
+    natural: "您好，"
+    balanced: "您好。"
+    is_regex: true
+    priority: 100
+    tags: [邮件称呼]
+
+  - pattern: "尊敬的客户，您好。?"
+    natural: "您好，"
+    balanced: "您好。"
+    is_regex: true
+    tags: [邮件称呼]
+
+  - pattern: "尊敬的招聘负责人，您好。?"
+    natural: "您好，"
+    balanced: "您好。"
+    is_regex: true
+    tags: [邮件称呼]
+
+  - pattern: "尊敬的用户您好，?"
+    natural: "您好，"
+    balanced: "您好，"
+    is_regex: true
+    tags: [邮件称呼]
+
+  - pattern: "尊敬的客户您好，?"
+    natural: "您好，"
+    balanced: "您好，"
+    is_regex: true
+    tags: [邮件称呼]
+
+  # ===== 面试 =====
+  - pattern: "非常感谢贵公司日前为我提供本次面试机会。"
+    natural: "感谢您安排这次面试。"
+    balanced: "感谢您安排这次面试。"
+    tags: [面试腔]
+
+  - pattern: "非常感谢贵司此前给予我的面试机会。?"
+    natural: "感谢您前面给我的面试机会。"
+    balanced: "感谢您前面给我的面试机会。"
+    is_regex: true
+    tags: [面试腔]
+
+  - pattern: "结合本次面试交流内容，我更加确信自身过往经历与该岗位需求之间具有较高的匹配度，也期待后续能够有机会继续推进相关流程。"
+    natural: "这次交流也让我更确认，自己的经历和岗位需求比较匹配，也期待后续能继续推进。"
+    balanced: "这次交流也让我更确认，自己的经历和岗位需求比较匹配，也期待后续能继续推进。"
+    fuzzy: true
+    threshold: 0.80
+    tags: [面试腔]
+
+  - pattern: "再次感谢您的时间与安排，期待您的进一步通知。?"
+    natural: "再次感谢您的时间和安排，期待您的回复。"
+    balanced: "再次感谢您的时间和安排，期待您的回复。"
+    is_regex: true
+    tags: [面试腔]
+
+  # ===== 客户邮件 =====
+  - pattern: "针对您当前咨询的([^。]*?)事项"
+    natural: "关于您咨询的\\1"
+    balanced: "关于您咨询的\\1"
+    is_regex: true
+    tags: [客服腔]
+
+  - pattern: "我方已经同步协调"
+    natural: "我们已经和"
+    balanced: "我们已经和"
+    tags: [客服腔]
+
+  - pattern: "相关财务同事进行进一步核实与推进"
+    natural: "财务同事确认并继续跟进"
+    balanced: "财务同事确认并继续跟进"
+    tags: [客服腔]
+
+  - pattern: "现阶段整体流程正在有序处理中"
+    natural: "目前这件事还在处理中"
+    balanced: "目前这件事还在处理中"
+    tags: [客服腔]
+
+  - pattern: "预计会在([^，。]+)为您提供更加清晰和完整的反馈说明"
+    natural: "预计\\1给您更明确的回复"
+    balanced: "预计\\1给您更明确的回复"
+    is_regex: true
+    tags: [客服腔]
+
+  - pattern: "感谢您的耐心等待与理解支持"
+    natural: "感谢您的耐心"
+    balanced: "感谢您的耐心"
+    tags: [客服腔]
+
+  - pattern: "如后续您有任何疑问，欢迎随时与我们联系，我们将竭诚为您服务。?"
+    natural: "如有其他问题，欢迎随时联系我。"
+    balanced: "如有其他问题，欢迎随时联系我。"
+    is_regex: true
+    tags: [客服腔]
+
+  - pattern: "欢迎随时与我们联系，我们将竭诚为您服务。?"
+    natural: "如有需要，欢迎随时联系我。"
+    balanced: "如有需要，欢迎随时联系我。"
+    is_regex: true
+    tags: [客服腔]
+
+  # ===== 商务邮件 =====
+  - pattern: "我们注意到贵公司当前正处于数字化转型和业务增长的关键阶段，因此希望向您推荐我司全新升级的一站式智能营销解决方案。?"
+    natural: "看到贵公司最近可能也在关注增长和数字化这块，所以想跟您简单介绍一下我们的智能营销方案。"
+    balanced: "看到贵公司最近可能也在关注增长和数字化这块，所以想跟您简单介绍一下我们的智能营销方案。"
+    is_regex: true
+    fuzzy: true
+    threshold: 0.78
+    tags: [商务腔]
+
+  - pattern: "感谢您的理解与支持"
+    natural: "谢谢您的理解"
+    balanced: "谢谢您的理解"
+    tags: [客服腔]
+
+  - pattern: "感谢您在百忙之中查阅此邮件"
+    natural: "感谢您抽空看这封邮件"
+    balanced: "感谢您抽空看这封邮件"
+    tags: [商务腔]

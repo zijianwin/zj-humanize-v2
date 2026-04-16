@@ -1,0 +1,286 @@
+# Longform copy replacement rules (自媒体/长文案)
+# Each rule maps an AI-style phrase to natural/balanced human alternatives.
+# fuzzy: true enables approximate matching for slight variations.
+
+rules:
+  # ===== 自媒体开头 =====
+  - pattern: "在当下这个充满不确定性却又蕴含巨大机会的时代"
+    natural: "这几年变化真的很快"
+    balanced: "最近这几年变化确实很快"
+    fuzzy: true
+    threshold: 0.82
+    tags: [开头套话]
+    priority: 100
+
+  - pattern: "每一个普通人都比以往任何时候更需要重新思考"
+    natural: "我越来越觉得，普通人得重新想想"
+    balanced: "普通人真的得重新想想"
+    fuzzy: true
+    threshold: 0.85
+    tags: [开头套话]
+
+  # ===== 核心抽象词 =====
+  - pattern: "成长这件事的底层逻辑"
+    natural: "成长这件事到底该怎么想"
+    balanced: "成长这件事到底该怎么想"
+    tags: [抽象词]
+    priority: 90
+
+  - pattern: "底层逻辑"
+    natural: "根子上的问题"
+    balanced: "更核心的问题"
+    tags: [抽象词]
+
+  - pattern: "认知升级系统"
+    natural: "更适合自己的思考方式"
+    balanced: "更适合自己的思考方式"
+    tags: [抽象词]
+
+  - pattern: "行动迭代机制"
+    natural: "行动节奏"
+    balanced: "行动节奏"
+    tags: [抽象词]
+
+  - pattern: "成长闭环"
+    natural: "一套能转起来的方法"
+    balanced: "一套能持续转起来的方法"
+    tags: [抽象词]
+
+  - pattern: "低质量勤奋"
+    natural: "瞎忙"
+    balanced: "表面上的忙"
+    tags: [抽象词]
+
+  - pattern: "单点突破"
+    natural: "某一项能力突然进步"
+    balanced: "单个能力的突破"
+    tags: [抽象词]
+
+  # ===== 自媒体鸡汤句式 =====
+  - pattern: "很多人表面上看起来很努力，也投入了大量时间与精力，但最终却没有获得预期中的结果。"
+    natural: "很多人明明也很努力，时间精力都花了，但结果还是不理想。"
+    balanced: "很多人明明也很努力，时间精力都花了，但结果还是不理想。"
+    fuzzy: true
+    threshold: 0.80
+    tags: [鸡汤句式]
+
+  - pattern: "为什么会这样？我认为，核心原因并不在于"
+    natural: "为什么会这样？问题往往不在于"
+    balanced: "为什么会这样？问题往往不在于"
+    tags: [鸡汤句式]
+
+  - pattern: "有没有建立起一套真正适合自己的认知升级系统和行动迭代机制"
+    natural: "有没有形成一套适合自己的思考方式和行动节奏"
+    balanced: "有没有形成一套适合自己的思考方式和行动节奏"
+    fuzzy: true
+    threshold: 0.82
+    tags: [鸡汤句式]
+
+  - pattern: "一个人真正拉开差距的，从来都不是短期的爆发，而是长期稳定的自我优化能力。"
+    natural: "真正拉开差距的，往往不是一时爆发，而是能不能长期调整自己。"
+    balanced: "真正拉开差距的，往往不是一时爆发，而是能不能长期调整自己。"
+    fuzzy: true
+    threshold: 0.82
+    tags: [鸡汤句式]
+
+  - pattern: "那些能够持续复盘、持续修正、持续精进的人，往往更容易在复杂环境中找到自己的节奏，并不断放大自己的优势。"
+    natural: "那些愿意持续复盘、修正、往前走的人，更容易在变化里找到自己的节奏，把优势慢慢做出来。"
+    balanced: "那些愿意持续复盘、修正、往前走的人，更容易在变化里找到自己的节奏，把优势慢慢做出来。"
+    fuzzy: true
+    threshold: 0.80
+    tags: [鸡汤句式]
+
+  - pattern: "所以我想告诉大家的是，"
+    natural: "说实话，我越来越觉得，"
+    balanced: "所以我想说的是，"
+    tags: [鸡汤句式]
+
+  - pattern: "形成一个真正可以持续运转的成长闭环"
+    natural: "形成一套适合自己的方法"
+    balanced: "形成自己的一套能持续转起来的方法"
+    fuzzy: true
+    threshold: 0.82
+    tags: [抽象词]
+
+  - pattern: "只有这样，一个人才有可能在变化中不断完成自我更新，并在长期竞争中获得更大的确定性。"
+    natural: "这样你才有机会在变化里不断更新自己，也更容易在长期里站稳。"
+    balanced: "这样你才有机会在变化里不断更新自己，也更容易在长期里站稳。"
+    fuzzy: true
+    threshold: 0.80
+    tags: [鸡汤句式]
+
+  - pattern: "如果你最近也正在经历迷茫、焦虑或者迟迟找不到突破口的阶段，"
+    natural: "如果你最近也有点迷茫、焦虑，或者一直找不到突破口，"
+    balanced: "如果你最近也有点迷茫、焦虑，或者一直找不到突破口，"
+    fuzzy: true
+    threshold: 0.85
+    tags: [鸡汤句式]
+
+  - pattern: "我真心希望你可以认真想一想："
+    natural: "不妨停下来想一想："
+    balanced: "不妨停下来想一想："
+    tags: [鸡汤句式]
+
+  - pattern: "希望今天这段分享，能够给你带来一点新的思考和启发。"
+    natural: "希望这段话能给你一点启发。"
+    balanced: "希望这段话能给你一点启发。"
+    fuzzy: true
+    threshold: 0.85
+    tags: [鸡汤句式]
+
+  - pattern: "如果你也有类似感受，欢迎在评论区分享你的看法。"
+    natural: "如果你也有类似感受，评论区聊聊。"
+    balanced: "如果你也有类似感受，评论区聊聊。"
+    tags: [鸡汤句式]
+
+  # ===== 通用模板词替换 =====
+  - pattern: "系统化交流"
+    natural: "一起好好聊聊"
+    balanced: "一起展开交流"
+    tags: [抽象词]
+
+  - pattern: "高质量学习型社群"
+    natural: "更愿意认真交流的群"
+    balanced: "更愿意认真交流的社群"
+    tags: [社群腔]
+
+  - pattern: "系统化理解"
+    natural: "真正理解"
+    balanced: "真正理解"
+    tags: [抽象词]
+
+  - pattern: "高价值直播分享"
+    natural: "直播"
+    balanced: "直播分享"
+    tags: [课程营销腔]
+
+  - pattern: "结构化表达"
+    natural: "更有条理地表达"
+    balanced: "更有条理地表达"
+    tags: [抽象词]
+
+  - pattern: "影响力输出能力"
+    natural: "把重点说清楚的能力"
+    balanced: "把重点说清楚的能力"
+    tags: [抽象词]
+
+  - pattern: "个人竞争力跃迁"
+    natural: "个人状态往前走一截"
+    balanced: "个人状态往前走一截"
+    tags: [抽象词]
+
+  - pattern: "释放增长潜能"
+    natural: "把增长往前推一推"
+    balanced: "把增长往前推一推"
+    tags: [商业套话]
+
+  - pattern: "深度拆解"
+    natural: "尽量讲具体"
+    balanced: "尽量讲具体"
+    tags: [课程营销腔]
+
+  - pattern: "全面提升"
+    natural: "慢慢提上来"
+    balanced: "慢慢提上来"
+    tags: [抽象词]
+
+  - pattern: "数字化浪潮"
+    natural: "现在这波数字化变化"
+    balanced: "现在这波数字化变化"
+    tags: [商业套话]
+    contexts_exempt: [技术方案]
+
+  - pattern: "数字化转型"
+    natural: "数字化升级"
+    balanced: "数字化升级"
+    tags: [商业套话]
+    contexts_exempt: [技术方案, 数字化]
+
+  - pattern: "多维度提升"
+    natural: "一起往前提"
+    balanced: "一起往前提"
+    tags: [商业套话]
+
+  - pattern: "组织协同体系"
+    natural: "团队协作方式"
+    balanced: "团队协作方式"
+    tags: [商业套话]
+
+  - pattern: "感谢您的理解与支持"
+    natural: "谢谢您的理解"
+    balanced: "谢谢您的理解"
+    tags: [客服腔]
+
+  - pattern: "感谢您的耐心等待"
+    natural: "感谢您的耐心"
+    balanced: "感谢您的耐心"
+    tags: [客服腔]
+
+  - pattern: "我们将竭诚为您服务"
+    natural: "我会继续跟进"
+    balanced: "我会继续跟进"
+    tags: [客服腔]
+
+  - pattern: "欢迎随时与我们联系"
+    natural: "欢迎随时联系我"
+    balanced: "欢迎随时联系我"
+    tags: [客服腔]
+
+  # ===== 长文 AI 句式模式 =====
+  - pattern: "从来不是.*而是"
+    mode: regex
+    tags: [AI金句]
+    priority: 95
+    note: "negation-flip gold sentence — AI 喜欢的'从来不是A而是B'句式"
+
+  - pattern: "真正的.*不是.*而是"
+    mode: regex
+    tags: [AI金句]
+    priority: 95
+    note: "AI-style 定义句：'真正的X不是A而是B'"
+
+  - pattern: "不是为了.*而是为了"
+    mode: regex
+    tags: [AI金句]
+    priority: 90
+    note: "目的翻转句式"
+
+  - pattern: "本质上.*不是.*而是"
+    mode: regex
+    tags: [AI金句]
+    priority: 90
+    note: "'本质上'开头的翻转金句"
+
+  - pattern: "不在于.*而在于"
+    mode: regex
+    tags: [AI金句]
+    priority: 85
+    note: "'不在于A而在于B'翻转句"
+
+  # ===== 长文 AI 结构模式 =====
+  - pattern: "表面上看.*但.*实际上"
+    mode: regex
+    tags: [AI结构]
+    priority: 80
+    note: "表面-实际 对比句式"
+
+  - pattern: "换句话说"
+    natural: ""
+    balanced: ""
+    tags: [AI解释冗余]
+    priority: 75
+    note: "同义重复开头，AI 喜欢用来解释前一句"
+
+  - pattern: "简单来说"
+    natural: ""
+    balanced: ""
+    tags: [AI解释冗余]
+    priority: 70
+    note: "口头禅式同义转述"
+
+  - pattern: "这意味着"
+    natural: ""
+    balanced: ""
+    tags: [AI解释冗余]
+    priority: 65
+    note: "AI 推论连接词"

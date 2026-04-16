@@ -1,0 +1,47 @@
+# Short reply replacement rules (微信/短消息)
+rules:
+  - pattern: "感谢您的理解与支持"
+    natural: "谢谢理解"
+    balanced: "谢谢您的理解"
+    tags: [客服腔]
+
+  - pattern: "我们将竭诚为您服务"
+    natural: "有问题随时找我"
+    balanced: "我会继续跟进"
+    tags: [客服腔]
+
+  - pattern: "感谢您的耐心等待"
+    natural: "感谢您的耐心"
+    balanced: "感谢您的耐心"
+    tags: [客服腔]
+
+  - pattern: "如有任何问题请随时联系"
+    natural: "有问题随时说"
+    balanced: "有问题随时联系我"
+    tags: [客服腔]
+
+  - pattern: "正在有序推进中"
+    natural: "还在推进"
+    balanced: "还在推进中"
+    tags: [客服腔]
+
+  - pattern: "高度重视并同步相关部门进行综合核实"
+    natural: "在和相关同事核实"
+    balanced: "已经在和相关同事核实"
+    tags: [客服腔]
+
+  - pattern: "已经高度重视并同步相关部门进行综合核实"
+    natural: "已经在和相关同事核实"
+    balanced: "已经在和相关同事核实"
+    tags: [客服腔]
+    priority: 10
+
+  - pattern: "为您提供完整处理结果"
+    natural: "把处理结果同步给您"
+    balanced: "把处理结果同步给您"
+    tags: [客服腔]
+
+  - pattern: "持续为您提供优质服务"
+    natural: "继续跟进这件事"
+    balanced: "继续跟进这件事"
+    tags: [客服腔]

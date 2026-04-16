@@ -1,0 +1,14 @@
+.pytest_cache/
+.state/
+.tmp/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.pytest_tmp/
