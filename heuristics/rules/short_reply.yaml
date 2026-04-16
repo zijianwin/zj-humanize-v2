@@ -1,5 +1,59 @@
 # Short reply replacement rules (微信/短消息)
 rules:
+  # ===== 催单 / 催进度 =====
+  - pattern: "想跟您同步一下当前进度，不知道目前是否方便帮我看一下。"
+    natural: "想跟您跟进一下进度，方便的话帮我看下现在到哪一步了。"
+    balanced: "想跟您跟进一下进度，方便的话帮我看下目前到哪一步了。"
+    tags: [催单腔]
+    priority: 16
+
+  - pattern: "想礼貌跟进一下目前的处理进度"
+    natural: "想跟进一下现在的处理进度"
+    balanced: "想跟进一下目前的处理进度"
+    tags: [催单腔]
+
+  - pattern: "烦请您帮忙确认一下当前进展"
+    natural: "麻烦帮我看下现在进展怎么样了"
+    balanced: "麻烦帮我确认一下现在的进展"
+    tags: [催单腔]
+
+  - pattern: "如您方便的话，烦请同步一下最新进度"
+    natural: "方便的话，麻烦同步一下最新进度"
+    balanced: "如果方便的话，麻烦同步一下最新进度"
+    tags: [催单腔]
+
+  - pattern: "麻烦您有时间时帮忙看一下"
+    natural: "麻烦你有空时帮我看一下"
+    balanced: "麻烦你有时间时帮我看一下"
+    tags: [催单腔]
+
+  # ===== 售后安抚 =====
+  - pattern: "给您带来不便我们深感抱歉"
+    natural: "这次确实给你添麻烦了，不好意思"
+    balanced: "这次确实给你带来不便了，不好意思"
+    tags: [售后安抚]
+    priority: 15
+
+  - pattern: "对此我们深表歉意"
+    natural: "这边先跟你说声抱歉"
+    balanced: "这边先跟你说声抱歉"
+    tags: [售后安抚]
+
+  - pattern: "我们非常理解您的心情"
+    natural: "我能理解你这边会着急"
+    balanced: "我能理解你这边的着急和不便"
+    tags: [售后安抚]
+
+  - pattern: "我们会尽快为您处理"
+    natural: "我这边会尽快处理"
+    balanced: "我这边会尽快跟进处理"
+    tags: [售后安抚]
+
+  - pattern: "请您放心"
+    natural: "这边我会继续盯着"
+    balanced: "这边我会继续跟进"
+    tags: [售后安抚]
+
   - pattern: "尊敬的客户您好！"
     natural: "你好，"
     balanced: "你好，"
@@ -83,6 +137,76 @@ rules:
     natural: "有进展我会及时跟你说"
     balanced: "后续有进展我会及时通知你"
     tags: [客服腔]
+
+  # ===== 面试跟进 / 短消息版 =====
+  - pattern: "感谢您今天安排的面试"
+    natural: "今天的面试辛苦了，也谢谢你的时间"
+    balanced: "感谢你今天安排的面试，也谢谢你的时间"
+    tags: [面试腔]
+
+  - pattern: "期待后续能够有进一步沟通的机会"
+    natural: "如果后面还有需要我配合的地方，随时和我说"
+    balanced: "如果后面还有需要我配合的地方，欢迎随时联系我"
+    tags: [面试腔]
+
+  - pattern: "期待您的进一步通知"
+    natural: "后续有消息的话，麻烦告诉我一声"
+    balanced: "后续如果有消息，麻烦告诉我一声"
+    tags: [面试腔]
+
+  # ===== 上级汇报 =====
+  - pattern: "现将当前工作进展同步如下"
+    natural: "跟您同步一下当前进展："
+    balanced: "跟您同步一下当前的工作进展："
+    tags: [汇报腔]
+    priority: 14
+
+  - pattern: "目前整体推进情况如下"
+    natural: "目前整体进展是这样的："
+    balanced: "目前整体进展如下："
+    tags: [汇报腔]
+
+  - pattern: "已完成阶段性工作内容"
+    natural: "阶段性的内容已经完成了"
+    balanced: "阶段性的内容已经完成"
+    tags: [汇报腔]
+
+  - pattern: "下一步将重点推进"
+    natural: "接下来我会重点推进"
+    balanced: "接下来会重点推进"
+    tags: [汇报腔]
+
+  - pattern: "如无特殊情况"
+    natural: "如果没有新的变动"
+    balanced: "如果没有新的变化"
+    tags: [汇报腔]
+
+  # ===== 社群通知 =====
+  - pattern: "感谢各位一直以来的理解与支持"
+    natural: "谢谢大家一直以来的支持"
+    balanced: "谢谢大家一直以来的支持"
+    tags: [社群通知]
+    priority: 12
+
+  - pattern: "现将相关安排通知如下"
+    natural: "相关安排跟大家说一下："
+    balanced: "相关安排跟大家同步一下："
+    tags: [社群通知]
+
+  - pattern: "请各位知悉并提前做好安排"
+    natural: "大家提前看一下，也方便早点安排"
+    balanced: "大家提前看一下，也方便提前安排"
+    tags: [社群通知]
+
+  - pattern: "如有疑问可随时联系工作人员"
+    natural: "有问题的话直接在群里问我就行"
+    balanced: "有问题的话可以直接联系我"
+    tags: [社群通知]
+
+  - pattern: "感谢各位的配合"
+    natural: "辛苦大家配合"
+    balanced: "辛苦大家配合"
+    tags: [社群通知]
 
   - pattern: "如有任何问题请随时联系"
     natural: "有问题随时说"

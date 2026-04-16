@@ -186,9 +186,9 @@ class Scorer:
             "检查ai味", "去ai味", "诊断", "长文案",
         )):
             return "longform"
-        if "邮件" in task or "email" in task:
+        if "邮件" in task or "email" in task or ("面试" in task and any(k in task for k in ("跟进", "感谢", "回复", "后续"))):
             return "email"
-        if "微信" in task or "wechat" in task or "飞书" in task:
+        if "微信" in task or "wechat" in task or "飞书" in task or "社群" in task or "群通知" in task:
             return "wechat"
         if any(m in task for m in ("售后", "客服", "投诉", "退款", "退换")):
             return "service"

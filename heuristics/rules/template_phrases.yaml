@@ -202,6 +202,33 @@ phrases:
     severity: moderate
     category: 客服腔
     contexts_exempt: [售后, 客服, 工单]
+  - phrase: "想礼貌跟进一下"
+    severity: moderate
+    category: 催单腔
+  - phrase: "烦请您帮忙确认一下"
+    severity: moderate
+    category: 催单腔
+  - phrase: "给您带来不便我们深感抱歉"
+    severity: moderate
+    category: 售后安抚
+  - phrase: "对此我们深表歉意"
+    severity: moderate
+    category: 售后安抚
+  - phrase: "现将当前工作进展同步如下"
+    severity: moderate
+    category: 汇报腔
+  - phrase: "目前整体推进情况如下"
+    severity: moderate
+    category: 汇报腔
+  - phrase: "现将相关安排通知如下"
+    severity: moderate
+    category: 社群通知
+  - phrase: "请各位知悉并提前做好安排"
+    severity: moderate
+    category: 社群通知
+  - phrase: "期待您的进一步通知"
+    severity: moderate
+    category: 面试腔
   - phrase: "尊敬的客户您好"
     severity: moderate
     category: 客服腔

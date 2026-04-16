@@ -150,6 +150,9 @@ class ReplacementEngine:
         cleaned = text
         cleaned = re.sub(r"[，,]\s*[！!？?。；;：:]", lambda m: m.group(0).strip()[0], cleaned)
         cleaned = re.sub(r"([您好你哈哦啊呢吗吧])，([！!？?])", r"\1\2", cleaned)
+        cleaned = re.sub(r"[：:]{2,}", "：", cleaned)
+        cleaned = re.sub(r"[：:][，,]", "：", cleaned)
+        cleaned = re.sub(r"[，,][：:]", "，", cleaned)
         cleaned = re.sub(r"([，。！？；])\1+", r"\1", cleaned)
         cleaned = re.sub(r"\s+", "", cleaned)
         return cleaned.strip()
