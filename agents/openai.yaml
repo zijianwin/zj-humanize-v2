@@ -1,7 +1,7 @@
 interface:
-  display_name: "Humanize v2"
+  display_name: "ZJ Humanize v2"
   short_description: "把中文 AI 文案改得更自然、更像真人"
-  default_prompt: "Use $humanize-v2 to rewrite Chinese AI-sounding copy into natural, human communication while preserving the key facts."
+  default_prompt: "Use $zj-humanize-v2 to rewrite Chinese AI-sounding copy into natural, human communication while preserving the key facts."
 
 policy:
   allow_implicit_invocation: true

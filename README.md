@@ -192,4 +192,4 @@ humanize-v2/
 
 ## License
 
-暂未添加许可证。若准备开源分发，建议补充 `MIT` 或 `Apache-2.0`。
+This project is licensed under the `MIT` License. See [LICENSE](LICENSE).
